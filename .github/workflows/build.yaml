@@ -24,17 +24,14 @@ jobs:
         with:
           up-flags: "--build -d"
           compose-file: "./docker-compose.yaml"
-      - name: Check host.docker.internal
+      - name: Check localhost availability
         run: |
-          if ping -c 4 host.docker.internal; then
-          echo "host.docker.internal is available"
+          if curl --output /dev/null --silent --fail http://localhost:8080; then
+            echo "Server is running on localhost"
           else
-          echo "host.docker.internal is not available"
+            echo "Server is not available on localhost"
+            exit 1
           fi
-      - name: Get Docker host IP
-        run: |
-          echo "Docker network interfaces:"
-          ip addr show docker0 | grep inet
       - name: Build with Maven
         run: mvn clean test
 
