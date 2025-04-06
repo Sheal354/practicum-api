@@ -20,7 +20,7 @@ jobs:
           distribution: 'zulu'
           cache: maven
       - name: Run docker compose
-        uses: hoverkraft-tech/compose-action@v0.0.0
+        uses: hoverkraft-tech/compose-action@v2.0.1
         with:
           up-flags: "--build -d"
       - name: Build with Maven
