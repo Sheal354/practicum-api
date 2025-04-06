@@ -23,6 +23,7 @@ jobs:
         uses: hoverkraft-tech/compose-action@v2.0.1
         with:
           up-flags: "--build -d"
+          compose-file: "./docker-compose.yaml"
       - name: Build with Maven
         run: mvn clean test
 
