@@ -24,12 +24,25 @@ jobs:
         with:
           up-flags: "--build -d"
           compose-file: "./docker-compose.yaml"
-      - name: Check localhost availability
+      - name: Wait for API server to be ready
         run: |
-          if curl --output /dev/null --silent --fail http://localhost:8080; then
-            echo "Server is running on localhost"
-          else
-            echo "Server is not available on localhost"
+          max_attempts=30
+          attempt=0
+          until curl --output /dev/null --silent --fail http://localhost:8080 || [ $attempt -ge $max_attempts ]; do
+            echo "Waiting for API server... Attempt $((++attempt))"
+            sleep 5
+          done
+          if [ $attempt -ge $max_attempts ]; then
+            echo "API server is not ready after $max_attempts attempts"
+            exit 1
+          fi
+      - name: Send POST request to create test data
+        run: |
+          curl -X POST http://localhost:8080/api/create \
+               -H "Content-Type: application/json" \
+               --data-binary @./test.json
+          if [ $? -ne 0 ]; then
+            echo "Failed to send POST request"
             exit 1
           fi
       - name: Build with Maven
