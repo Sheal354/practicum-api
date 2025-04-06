@@ -28,7 +28,7 @@ jobs:
         run: |
           max_attempts=30
           attempt=0
-          until curl --output /dev/null --silent --fail http://localhost:8080 || [ $attempt -ge $max_attempts ]; do
+          until curl --output /dev/null --silent --fail http://localhost:8080/api/_/docs/swagger/ || [ $attempt -ge $max_attempts ]; do
             echo "Waiting for API server... Attempt $((++attempt))"
             sleep 5
           done
