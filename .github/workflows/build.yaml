@@ -2,9 +2,9 @@ name: Java CI with Maven
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "master" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "master" ]
 
 jobs:
   build:
@@ -19,6 +19,10 @@ jobs:
           java-version: '17'
           distribution: 'zulu'
           cache: maven
+      - name: Run docker compose
+        uses: hoverkraft-tech/compose-action@v0.0.0
+        with:
+          up-flags: "--build -d"
       - name: Build with Maven
         run: mvn clean test
 
@@ -45,3 +49,6 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
           publish_dir: allure-history
+
+      - name: Stop docker compose
+        run: docker-compose down
