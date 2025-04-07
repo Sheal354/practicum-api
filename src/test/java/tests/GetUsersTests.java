@@ -1,16 +1,16 @@
 package tests;
 
+import helpers.UserServices;
 import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
+import models.Entity;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
-import org.testng.asserts.SoftAssert;
 import org.testng.annotations.Test;
-import pojo.Entity;
-import helpers.UserServices;
+import org.testng.asserts.SoftAssert;
 
 import java.util.List;
 

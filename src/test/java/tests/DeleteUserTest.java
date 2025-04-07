@@ -5,10 +5,10 @@ import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
+import models.Addition;
+import models.Entity;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import pojo.Addition;
-import pojo.Entity;
 
 import java.util.Arrays;
 

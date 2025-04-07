@@ -1,15 +1,15 @@
 package tests;
 
+import helpers.UserServices;
 import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
+import models.Addition;
+import models.Entity;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
-import pojo.Addition;
-import pojo.Entity;
-import helpers.UserServices;
 
 import java.util.Arrays;
 
