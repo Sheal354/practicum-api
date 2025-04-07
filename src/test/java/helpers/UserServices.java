@@ -23,7 +23,6 @@ public class UserServices {
     @Step("Создание нового клиента через отправку POST-запроса на сервер.")
     public static String createUser(Entity entityPojo) {
         return given()
-                .filter(new AllureRestAssured())
                 .spec(Specifications.initRequestSpecification())
                 .body(entityPojo)
                 .when()
@@ -54,7 +53,6 @@ public class UserServices {
     @Step("Получение списка всех клиентов, доступных на сервере через отправку GET-запроса.")
     public static List<Entity> getAllUsers() {
         return given()
-                .filter(new AllureRestAssured())
                 .spec(Specifications.initRequestSpecification())
                 .when()
                 .get("/api/getAll")
@@ -71,7 +69,6 @@ public class UserServices {
     @Step("Получение данных конкретного клиента по его уникальному идентификатору через отправку GET-запроса на сервер.")
     public static Entity getUserById(String userId, int statusCode) {
         return given()
-                .filter(new AllureRestAssured())
                 .spec(Specifications.initRequestSpecification())
                 .when()
                 .get("/api/get/" + userId)
@@ -88,7 +85,6 @@ public class UserServices {
     @Step("Обновление данных существующего клиента по его уникальному идентификатору через отправку PATCH-запроса на сервер.")
     public static void updateUserById(String userId, Entity entityPojo) {
         given()
-                .filter(new AllureRestAssured())
                 .spec(Specifications.initRequestSpecification())
                 .body(entityPojo)
                 .when()
