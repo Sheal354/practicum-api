@@ -24,18 +24,6 @@ jobs:
         with:
           up-flags: "--build -d"
           compose-file: "./docker-compose.yaml"
-      - name: Wait for API server to be ready
-        run: |
-          max_attempts=30
-          attempt=0
-          until curl --output /dev/null --silent --fail http://localhost:8080/api/_/docs/swagger/ || [ $attempt -ge $max_attempts ]; do
-            echo "Waiting for API server... Attempt $((++attempt))"
-            sleep 5
-          done
-          if [ $attempt -ge $max_attempts ]; then
-            echo "API server is not ready after $max_attempts attempts"
-            exit 1
-          fi
       - name: Send POST request to create test data
         run: |
           curl -X POST http://localhost:8080/api/create \
