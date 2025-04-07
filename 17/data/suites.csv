@@ -1,0 +1,6 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Mon Apr 07 12:00:12 GMT 2025","Mon Apr 07 12:00:14 GMT 2025","2165","autoTests","Tests","tests.GetUsersTests","tests.GetUsersTests","getUser","Get User Test","Проверка корректности данных клиента"
+"passed","Mon Apr 07 12:00:14 GMT 2025","Mon Apr 07 12:00:14 GMT 2025","53","autoTests","Tests","tests.DeleteUserTest","tests.DeleteUserTest","deleteUserTest","Delete User Test","Проверка успешного удаления данных о клиенте."
+"passed","Mon Apr 07 12:00:12 GMT 2025","Mon Apr 07 12:00:15 GMT 2025","2860","autoTests","Tests","tests.GetUsersTests","tests.GetUsersTests","getAllUsersTest","Get All Users Test","Проверка верификации всех клиентов."
+"passed","Mon Apr 07 12:00:14 GMT 2025","Mon Apr 07 12:00:14 GMT 2025","80","autoTests","Tests","tests.UpdateUserTest","tests.UpdateUserTest","updateUserTest","Update User Test","Проверка успешного обновления данных клиента."
+"passed","Mon Apr 07 12:00:11 GMT 2025","Mon Apr 07 12:00:14 GMT 2025","2356","autoTests","Tests","tests.CreateUserTest","tests.CreateUserTest","createUserTest","Create User Test","Проверка успешного создания клиента."
